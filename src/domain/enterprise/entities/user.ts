@@ -44,6 +44,10 @@ export class User extends Entity<UserProps> {
         return this.props.type;
     }
 
+    public canTransfer(): boolean {
+        return this.type === 'common';
+    }
+
     public debit(amount: Money) : void {
         if (this.balance.value < amount.value) {
             throw new Error('Saldo insuficiente');
