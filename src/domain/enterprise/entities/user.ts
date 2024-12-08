@@ -1,5 +1,7 @@
 import { Entity } from "src/core/entities/entity";
+import { UniqueEntityID } from "src/core/entities/unique-entity-id";
 import { Optional } from "src/core/optional";
+import { Money } from "../value-objects/money";
 
 export type UserProps = {
     name: string;
@@ -7,7 +9,10 @@ export type UserProps = {
     cnpj?: string;
     email: string;
     password: string;
-    type: string;
+    type: 'common' | 'merchant';
+    balance: Money;
+    createdAt?: Date;
+    updatedAt?: Date | null;
 };
 
 export class User extends Entity<UserProps> {
@@ -15,7 +20,6 @@ export class User extends Entity<UserProps> {
         return this.props.name;
     }
 
-    
     get cpf() {
         return this.props.cpf;
     }
@@ -32,11 +36,37 @@ export class User extends Entity<UserProps> {
         return this.props.password;
     }
 
+    get balance(){
+        return this.props.balance;
+    }
+
     get type() {
         return this.props.type;
     }
 
-    public static create(props: UserProps, id?: string) {
-        return new User(props, id);
+    public debit(amount: Money) : void {
+        if (this.balance.value < amount.value) {
+            throw new Error('Saldo insuficiente');
+        }
+        this.props.balance = this.balance.subtract(amount);
+    }
+
+    public credit(amount: Money) : void {
+        this.props.balance = this.balance.add(amount);
+    }
+
+    public static create(
+        props: Optional<UserProps, 'createdAt'>,
+         id?: UniqueEntityID
+    ) {
+        const user = new User({
+            ...props,
+            balance: props.balance ?? Money.create(0),
+            createdAt: new Date(),
+        },
+        id,
+    );
+
+    return user;
     }
 }
