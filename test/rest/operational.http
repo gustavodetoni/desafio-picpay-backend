@@ -1,0 +1,24 @@
+### Create a common user
+POST {{$dotenv API_URL}}/users
+Content-Type: application/json
+
+{
+  "name": "Gustavo Detoni",
+  "cpf": "12345678900",
+  "email": "gustavo@example.com",
+  "password": "password123",
+  "type": "common"
+}
+
+### Create a merchant user
+POST {{$dotenv API_URL}}/users
+Content-Type: application/json
+
+{
+  "name": "Daniel Prata",
+  "cnpj": "12345678000100",
+  "email": "daniel@shop.com",
+  "password": "password456",
+  "type": "merchant"
+}
+
