@@ -12,7 +12,7 @@ export class Money extends ValueObject<MoneyProps> {
         super(props);
     }
 
-    get value(): number {
+    get value(): any {
         return this.props.amount;
     }
 
@@ -24,7 +24,7 @@ export class Money extends ValueObject<MoneyProps> {
         return Money.create(this.value - money.value);
     }
 
-    static create(amount: number): Money {
+    static create(amount: any): Money {
         if (amount < 0) {
             throw new Error('Money amount cannot be negative');
         }

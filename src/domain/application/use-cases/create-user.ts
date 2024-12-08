@@ -12,6 +12,7 @@ export type CreateUserUseCaseRequest = {
     email: string;
     password: string;
     type: 'common' | 'merchant';
+    balance: Money;
 }
 
 type CreateUserUseCaseResponse = Either<ResourceAlreadyExists, { user: User }>
@@ -27,6 +28,7 @@ export class CreateUserUseCase {
         email,
         password,
         type,
+        balance
     }: CreateUserUseCaseRequest): Promise<CreateUserUseCaseResponse> {
         const userWithSameEmail = await this.userRepository.findByEmail(email);
 

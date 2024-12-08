@@ -24,7 +24,7 @@ export class User extends Entity<UserProps> {
         return this.props.cpf;
     }
     
-    get cpnj() {
+    get cnpj() {
         return this.props.cnpj;
     }
     
