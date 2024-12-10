@@ -33,20 +33,20 @@ export class CreateUserUseCase {
         const userWithSameEmail = await this.userRepository.findByEmail(email);
 
         if (userWithSameEmail) {
-            return left(new ResourceAlreadyExists());
+            return left(new ResourceAlreadyExists("User already exists"));
         }
 
         if (cpf) {
             const userWithSameCpf = await this.userRepository.findByCpf(cpf);
             if (userWithSameCpf) {
-                return left(new ResourceAlreadyExists());
+                return left(new ResourceAlreadyExists("User with this CPF already exists"));
             }
         }
 
         if (cnpj) {
             const userWithSameCnpj = await this.userRepository.findByCnpj(cnpj);
             if (userWithSameCnpj) {
-                return left(new ResourceAlreadyExists());
+                return left(new ResourceAlreadyExists("User with this CNPJ already exists"));
             }
         }
 
@@ -57,7 +57,7 @@ export class CreateUserUseCase {
             email,
             password,
             type,
-            balance: Money.create(0),
+            balance: Money.create(balance.value),
         });
 
         await this.userRepository.create(user);

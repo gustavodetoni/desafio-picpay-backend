@@ -5,8 +5,9 @@ Content-Type: application/json
 {
   "name": "Gustavo Detoni",
   "cpf": "12345678900",
-  "email": "gustavo@example.com",
+  "email": "gustavo123@example.com",
   "password": "password123",
+   "balance": 10000,
   "type": "common"
 }
 
@@ -17,8 +18,27 @@ Content-Type: application/json
 {
   "name": "Daniel Prata",
   "cnpj": "12345678000100",
-  "email": "daniel@shop.com",
+  "email": "daniel123@shop.com",
   "password": "password456",
+  "balance": "10000",
   "type": "merchant"
 }
 
+### Transfer money
+POST {{$dotenv API_URL}}/transactions
+Content-Type: application/json
+
+{
+  "senderId": "user-id-1",
+  "recipientId": "user-id-2",
+  "amount": 100.00
+}
+
+### Get user balance
+GET {{$dotenv API_URL}}/users/user-id-1/balance
+
+### Get transaction history
+GET {{$dotenv API_URL}}/users/user-id-1/transactions
+
+### Get user profile
+GET {{$dotenv API_URL}}/users/user-id-1
