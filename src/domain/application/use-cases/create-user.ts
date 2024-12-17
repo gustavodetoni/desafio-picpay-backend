@@ -7,8 +7,8 @@ import { Money } from "src/domain/enterprise/value-objects/money";
 
 export type CreateUserUseCaseRequest = {
     name: string;
-    cpf?: string;
-    cnpj?: string;
+    cpf: string;
+    cnpj: string;
     email: string;
     password: string;
     type: 'common' | 'merchant';

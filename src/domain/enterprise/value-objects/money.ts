@@ -1,3 +1,4 @@
+import { ResourceAlreadyExists } from "@/core/errors/resource-already-exists";
 import { ValueObject } from "src/core/entities/value-object";
 
 interface MoneyProps {
@@ -26,7 +27,7 @@ export class Money extends ValueObject<MoneyProps> {
 
     static create(amount: any): Money {
         if (amount < 0) {
-            throw new Error('Money amount cannot be negative');
+            throw new ResourceAlreadyExists('Money amount cannot be negative');
         }
         return new Money({ amount, currency: Money.CURRENCY });
     }

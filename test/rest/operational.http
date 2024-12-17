@@ -20,7 +20,7 @@ Content-Type: application/json
   "cnpj": "12345678000100",
   "email": "daniel123@shop.com",
   "password": "password456",
-  "balance": "10000",
+  "balance": 5000,
   "type": "merchant"
 }
 
@@ -29,9 +29,9 @@ POST {{$dotenv API_URL}}/transactions
 Content-Type: application/json
 
 {
-  "senderId": "user-id-1",
-  "recipientId": "user-id-2",
-  "amount": 100.00
+  "senderId": "ea2f6d92-4445-4b7a-b01d-6330dfaeb2a6",
+  "recipientId": "128fa79f-8bf9-4060-bf4c-382524a07f9f",
+  "amount": 100
 }
 
 ### Get user balance
