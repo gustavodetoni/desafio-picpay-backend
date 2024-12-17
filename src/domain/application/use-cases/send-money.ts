@@ -6,6 +6,8 @@ import { Transaction } from "src/domain/enterprise/entities/transaction";
 import { UserRepository } from "../repositories/user.repository";
 import { TransactionRepository } from "../repositories/transaction.repository";
 import { Money } from "src/domain/enterprise/value-objects/money";
+import { AuthorizationService } from "../repositories/authorization.repository";
+import { NotificationService } from "../repositories/notification.repository";
 
 export type SendMoneyUseCaseRequest = {
     senderId: string;
@@ -20,8 +22,8 @@ export class SendMoneyUseCase {
     constructor(
         private userRepository: UserRepository,
         private transactionRepository: TransactionRepository,
-        private authorizationService: TransactionRepository,
-        private notificationService: TransactionRepository
+        private authorizationService: AuthorizationService,
+        private notificationService: NotificationService
     ) {}
 
     async execute({
