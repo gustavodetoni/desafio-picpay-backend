@@ -13,6 +13,8 @@ export class PrismaUserMapper {
             password: raw.password,
             type: raw.type as 'common' | 'merchant',
             balance: Money.create(raw.balance),
+            createdAt: raw.createdAt,
+            updatedAt: raw.updatedAt,
             },
             new UniqueEntityID(raw.id)
         );
@@ -28,6 +30,8 @@ export class PrismaUserMapper {
             password: user.password,
             type: user.type,
             balance: user.balance.value,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt || null,
         }
     }
 

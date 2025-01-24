@@ -4,10 +4,10 @@ Content-Type: application/json
 
 {
   "name": "Gustavo Detoni",
-  "cpf": "12345678900",
-  "email": "gustavo123@example.com",
+  "cpf": "12345678900123",
+  "email": "gustavo12345@example.com",
   "password": "password123",
-   "balance": 10000,
+  "balance": 10000,
   "type": "common"
 }
 
@@ -20,7 +20,7 @@ Content-Type: application/json
   "cnpj": "12345678000100",
   "email": "daniel123@shop.com",
   "password": "password456",
-  "balance": "10000",
+  "balance": 5000,
   "type": "merchant"
 }
 

@@ -16,6 +16,8 @@ model User {
   password String
   balance  Float
   type     String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime?
 
   @@map("users")
 }

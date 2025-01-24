@@ -31,10 +31,6 @@
       "test/*": [
         "./src/test/*"
       ]
-    },
-    "types": [
-      "vitest/globals",
-      "multer"
-    ]
+    }
   }
 }

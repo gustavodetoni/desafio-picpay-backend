@@ -44,6 +44,14 @@ export class User extends Entity<UserProps> {
         return this.props.type;
     }
 
+    get createdAt() {
+        return this.props.createdAt;
+    }
+
+    get updatedAt() {
+        return this.props.updatedAt;
+    }
+
     public canTransfer(): boolean {
         return this.type === 'common';
     }
