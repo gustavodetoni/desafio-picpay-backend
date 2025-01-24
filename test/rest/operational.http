@@ -29,9 +29,9 @@ POST {{$dotenv API_URL}}/transactions
 Content-Type: application/json
 
 {
-  "senderId": "user-id-1",
-  "recipientId": "user-id-2",
-  "amount": 100.00
+  "senderId": "075988ea-1761-41f2-b0df-0cdea6250a30",
+  "recipientId": "73c8a305-2fef-4f5b-be2c-759f464d7fce",
+  "amount": 100
 }
 
 ### Get user balance

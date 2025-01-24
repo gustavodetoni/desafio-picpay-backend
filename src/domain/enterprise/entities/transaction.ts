@@ -25,6 +25,10 @@ export class Transaction extends Entity<TransactionProps> {
         return this.props.createdAt;
     }
 
+    private constructor(props: TransactionProps, id?: UniqueEntityID) {
+        super(props, id);
+    }
+
     static create(props: TransactionProps, id?: UniqueEntityID) {
         return new Transaction(props, id);
     }

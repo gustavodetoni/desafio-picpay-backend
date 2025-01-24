@@ -5,8 +5,8 @@ import { Money } from "../value-objects/money";
 
 export type UserProps = {
     name: string;
-    cpf?: string;
-    cnpj?: string;
+    cpf: string | null;
+    cnpj: string | null;
     email: string;
     password: string;
     type: 'common' | 'merchant';

@@ -61,8 +61,8 @@ export class CreateUserUseCase {
 
     const user = User.create({
       name,
-      cpf,
-      cnpj,
+      cpf: cpf || null,
+      cnpj: cnpj || null,
       email,
       password,
       type,
